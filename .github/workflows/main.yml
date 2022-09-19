@@ -1,4 +1,4 @@
-name: Lint
+name: CI
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache : yarn 
+          cache: yarn
 
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache --check-cache
