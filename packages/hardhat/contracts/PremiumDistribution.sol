@@ -23,7 +23,7 @@ contract PremiumDistribution {
 
     IDAv1Library.InitData public idaV1;
 
-    // Each collection pool will have its own index. Pool bootrap scripting will *eventually* manage the indexing. Single NFT Pool supported for the hackathon
+    // Each collection pool will *eventually* have its own index and pool bootrap scripting will  manage the indexing. Single NFT Pool supported for the hackathon
     uint32 public constant INDEX_ID = 0; 
 
     constructor(ISuperfluid _host, ISuperToken _premiumToken) {
@@ -62,7 +62,7 @@ contract PremiumDistribution {
         idaV1.distribute(premiumToken, INDEX_ID, actualDistributionAmount);
     }
 
-    // Updated share of the index. Call at when NFT Provider submits and NFT into the pool / writes an option
+    // Updated share of the index. Call when NFT Provider submits NFT into the pool
     function gainShare(address nftProvider) public {
         // Get current units nftProvider holds
         (, , uint256 currentUnitsHeld, ) = idaV1.getSubscription(
