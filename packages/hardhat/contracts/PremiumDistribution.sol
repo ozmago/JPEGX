@@ -8,26 +8,23 @@ import {IDAv1Library} from "@superfluid-finance/ethereum-contracts/contracts/app
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-
 /**
-* NFT providers (option writers) will receive a share of Collection pool's premiums, upon option expiry 
-* To enable gas-optimized revenue sharing Superfluid InstanDistributionAgreement is leveraged
-*/
+ * NFT providers (option writers) will receive a share of Collection pool's premiums, upon option expiry
+ * To enable gas-optimized revenue sharing Superfluid InstanDistributionAgreement is leveraged
+ */
 contract PremiumDistribution {
-
-    // Premium token wrapped up as Superfluid SuperToken to enable InstantDistributions
+    /// Premium token wrapped up as Superfluid SuperToken to enable InstantDistributions
     ISuperToken public premiumToken;
 
-    // Superfluid IDA settings
-    using IDAv1Library for IDAv1Library.InitData;   
+    /// Superfluid IDA settings
+    using IDAv1Library for IDAv1Library.InitData;
 
     IDAv1Library.InitData public idaV1;
 
-    // Each collection pool will *eventually* have its own index and pool bootrap scripting will  manage the indexing. Single NFT Pool supported for the hackathon
-    uint32 public constant INDEX_ID = 0; 
+    /// Each collection pool will *eventually* have its own index and pool bootrap scripting will  manage the indexing. Single NFT Pool supported for the hackathon
+    uint32 public constant INDEX_ID = 0;
 
     constructor(ISuperfluid _host, ISuperToken _premiumToken) {
-     
         require(address(_host) == _premiumToken.getHost(), "!superToken");
 
         premiumToken = _premiumToken;
@@ -48,7 +45,8 @@ contract PremiumDistribution {
         idaV1.createIndex(_premiumToken, INDEX_ID);
     }
 
-    // Distributes the premium based on share in the index. Call at NFT Option expriry
+    /// Distributes the premium based on share in the index. 
+    /// Call at NFT Option expriry
     function distribute() public {
         uint256 premiumTokenBalance = premiumToken.balanceOf(address(this));
 
@@ -62,7 +60,9 @@ contract PremiumDistribution {
         idaV1.distribute(premiumToken, INDEX_ID, actualDistributionAmount);
     }
 
-    // Updated share of the index. Call when NFT Provider submits NFT into the pool
+    /// Updated share of the index. 
+    /// Call when NFT Provider submits NFT into the pool
+    /// @param nftProvider NFT provider
     function gainShare(address nftProvider) public {
         // Get current units nftProvider holds
         (, , uint256 currentUnitsHeld, ) = idaV1.getSubscription(
@@ -81,7 +81,10 @@ contract PremiumDistribution {
         );
     }
 
-    // Update share of the index. Call when NFT Provider removes a NFT from the pool  
+    /// Update share of the index. 
+    /// Call when NFT Provider removes a NFT from the pool
+    /// @param nftProvider NFT provider
+
     function loseShare(address nftProvider) public {
         (, , uint256 currentUnitsHeld, ) = idaV1.getSubscription(
             premiumToken,
@@ -98,10 +101,16 @@ contract PremiumDistribution {
         );
     }
 
-    // Update share of the index. Call when NFT Provider removes all NFTs from the pool and no longer participates    
+    /// Update share of the index. 
+    /// Call when NFT Provider removes all NFTs from the pool and no longer participates
+    /// @param nftProvider NFT provider
+
     function deleteShares(address nftProvider) public {
-        idaV1.deleteSubscription(premiumToken, address(this), INDEX_ID, nftProvider);
+        idaV1.deleteSubscription(
+            premiumToken,
+            address(this),
+            INDEX_ID,
+            nftProvider
+        );
     }
-
-
 }
