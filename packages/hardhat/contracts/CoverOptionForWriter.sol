@@ -52,8 +52,6 @@ contract CoverOptionForWriter is IKeeper, SuperAppBase {
 
     address[] internal optionWriters;
 
-    // last market price - address is the asset
-    mapping(address => uint256) internal lastMarketPrice;
     // covered price - address is the writer
     mapping(address => uint256) internal optionStrikePrices;
 
