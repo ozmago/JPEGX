@@ -3,23 +3,27 @@ pragma solidity ^0.8.13;
 
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import {IERC721Receiver} from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import {Auction} from "./Auction.sol";
 
-contract JPEGXStakeContract is IERC721Receiver {
+contract JPEGXStakeContract is IERC721Receiver, Auction {
     address tokenAddress;
-    uint256 creationEpoch;
     uint256 optionExpiration = 7 days;
+    uint256 coverPositionExpiry = 1 days;
     uint256 mockMarketPrice = 2 ether;
     uint256 mockOptionPrice = 125000000 gwei;
     mapping(uint256 => uint256) tokenId_strikePrice;
     mapping(uint256 => bool) tokenId_flowOpened;
     mapping(uint256 => bool) tokenId_traded;
     mapping(uint256 => address) tokenId_owner;
+    mapping(uint256 => address) tokenId_buyer;
     mapping(uint256 => uint256) tokenId_ending;
+    mapping(uint256 => uint256) tokenId_coverPositionExpiry;
+    mapping(uint256 => uint256) tokenId_coverPositionAmount;
+    mapping(uint256 => bool) tokenId_liquidable;
     IERC721 token;
 
-    constructor(address _tokenAddress) public {
+    constructor(address _tokenAddress) public Auction(_tokenAddress) {
         tokenAddress = _tokenAddress;
-        creationEpoch = block.timestamp;
         token = IERC721(_tokenAddress);
     }
 
@@ -54,6 +58,7 @@ contract JPEGXStakeContract is IERC721Receiver {
         require(tokenId_traded[_tokenId] == false, "NFT already traded");
         tokenId_traded[_tokenId] = true;
         tokenId_ending[_tokenId] = block.timestamp + optionExpiration;
+        tokenId_buyer[_tokenId] = msg.sender;
     }
 
     //  Function called at the option expiry
@@ -71,6 +76,12 @@ contract JPEGXStakeContract is IERC721Receiver {
             //  Option buyer is required to add eth to cover position
             //  Owner is required to add eth to cover position
             //  coverPositionOrSellTheNFT()     //  function to be created  @Notification
+            tokenId_liquidable[_tokenId] = true;
+            tokenId_coverPositionExpiry[_tokenId] =
+                block.timestamp +
+                coverPositionExpiry;
+            tokenId_coverPositionAmount[_tokenId] = marketPrice - strikePrice; //reentrency ??
+            //start(_tokenId, 1300 wei);
         } else {
             //  Option expires worthless
             //  Owner withdraws NFT and premium
@@ -79,6 +90,34 @@ contract JPEGXStakeContract is IERC721Receiver {
         }
     }
 
+    //  Function called by the owner of the NFT when to cover position from being liquidated
+    function coverPosition(uint256 _tokenId) public payable {
+        require(
+            tokenId_liquidable[_tokenId] == true,
+            "NFT is not in liquidation"
+        );
+        require(
+            msg.value == tokenId_coverPositionAmount[_tokenId],
+            "msg.value doesn't match the cover position price"
+        );
+        payable(tokenId_buyer[_tokenId]).send(msg.value);
+        tokenId_liquidable[_tokenId] = false;
+        tokenId_traded[_tokenId] = false;
+    }
+
+    function liquidateNFT(uint256 _tokenId) public {
+        require(block.timestamp > tokenId_coverPositionExpiry[_tokenId]);
+        uint256 liquidationPrice = (getPrice() * 900) / 1000;
+        start(
+            _tokenId,
+            liquidationPrice,
+            tokenId_owner[_tokenId],
+            tokenId_buyer[_tokenId],
+            tokenId_coverPositionAmount[_tokenId]
+        );
+    }
+
+    // Withdraw your NFT from the pool, see you soon !
     function withdrawNFT(uint256 _tokenId) public {
         require(tokenId_owner[_tokenId] == msg.sender);
         require(tokenId_traded[_tokenId] == false);
@@ -110,5 +149,22 @@ contract JPEGXStakeContract is IERC721Receiver {
         uint256 mPrice = getPrice(); // mPrice = FloorPrice
         //  uint256 _optionPrice = (mPrice * 1000) / (2718**((693 * tokenId_strikePrice[_tokenId]) / mPrice)) - mPrice;     // Real function (or not so far) but overflows
         return mockOptionPrice;
+    }
+
+    function finishAuction(uint256 _tokenId) public {
+        bool sellIsDone = end(_tokenId);
+        if (sellIsDone) {
+            tokenId_owner[_tokenId] = address(0);
+            tokenId_flowOpened[_tokenId] = false;
+        } else {
+            uint256 liquidationPrice = (getPrice() * 400) / 1000;
+            start(
+                _tokenId,
+                liquidationPrice,
+                tokenId_owner[_tokenId],
+                tokenId_buyer[_tokenId],
+                tokenId_coverPositionAmount[_tokenId]
+            );
+        }
     }
 }
