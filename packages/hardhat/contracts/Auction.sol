@@ -47,21 +47,17 @@ contract Auction {
         emit Start(_nftId, startingBid);
     }
 
+    //  Bid the auction
     function bid(uint256 _nftId) external payable {
         require(started[_nftId], "Not started[_nftId].");
         require(block.timestamp < endAt[_nftId], "ended[_nftId]!");
         require(
-            msg.value > highestBid[_nftId],
-            "the bid is lower than actual maxBid"
+            msg.value + bids[_nftId][msg.sender] > highestBid[_nftId],
+            "the total bid is lower than actual maxBid"
         );
-
-        if (actualBidder[_nftId] != address(0)) {
-            bids[_nftId][actualBidder[_nftId]] += highestBid[_nftId];
-        }
-
-        highestBid[_nftId] = msg.value;
+        bids[_nftId][msg.sender] += msg.value;
+        highestBid[_nftId] = bids[_nftId][msg.sender];
         actualBidder[_nftId] = msg.sender;
-
         emit Bid(actualBidder[_nftId], highestBid[_nftId]);
     }
 
