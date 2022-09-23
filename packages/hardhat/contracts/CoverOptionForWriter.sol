@@ -47,22 +47,22 @@ struct CoverStream {
 
 contract CoverOptionForWriter is IKeeper, SuperAppBase {
     // price oracle
-    IOracle public priceOracle;
+    IOracle internal priceOracle;
     address NFTCollection;
 
-    address[] public optionWriters;
+    address[] internal optionWriters;
 
     // last market price - address is the asset
-    mapping(address => uint256) public lastMarketPrice;
+    mapping(address => uint256) internal lastMarketPrice;
     // covered price - address is the writer
-    mapping(address => uint256) public optionStrikePrices;
+    mapping(address => uint256) internal optionStrikePrices;
 
     // option writer => Stream
-    mapping(address => CoverStream) public coverStreams;
+    mapping(address => CoverStream) internal coverStreams;
 
     // Superfluid config
     using CFAv1Library for CFAv1Library.InitData;
-    CFAv1Library.InitData public cfaV1;
+    CFAv1Library.InitData internal cfaV1;
 
     constructor(ISuperfluid host, ISuperToken coverToken) {
         assert(address(host) != address(0));
