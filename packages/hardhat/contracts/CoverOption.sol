@@ -45,7 +45,7 @@ struct CoverStream {
     bool flowsIn;
 }
 
-contract CoverOptionForWriter is IKeeper, SuperAppBase {
+contract CoverOption is IKeeper, SuperAppBase {
     // price oracle
     IOracle internal priceOracle;
     address NFTCollection;
