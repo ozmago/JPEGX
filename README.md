@@ -28,9 +28,9 @@
   </a>
 </p>
 
-[<img src="packages/assets/option_management.png" alt="JPEGX">](https://conveyr.xyz/)
+[<img src="packages/assets/option_management.png" alt="JPEGX">]
 
-<!-- [**👉 Our Glorious Deployment URL 👈**](https://conveyr.xyz/) -->
+<!-- [**👉 Our Glorious Deployment URL 👈**] -->
 
 ## Table of Contents
 
