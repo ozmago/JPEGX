@@ -51,17 +51,19 @@
   - The NFT holder can provide the strike vs. market price difference to option caller, or
   - Option caller can receive the NFT at option's strike price, or
   - NFT is auctioned off
-- Otherwise the NFT holder receives the share of pool's option premiums
+- If the option doesn't expire 'in the money', option premiums are distributed to NFT owners
 
 ## Product
 
-- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
-- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
-- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
-- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
-- Lorem ipsum Duis at nunc nec enim semper malesuada:
-  - Lorem ipsum Duis at nunc
-  - Lorem ipsum Duis at nunc
+- NFT owner writes an option on the NFT
+- Protocol defines strike price and premium pricing options
+  - Martket price oracles and bonding curves will be used
+- NFT is staked for the option duration, in a pool with other NFTs OF THE SAME COLLECTION
+  - At staking time, the NFT holder has the option to subscribe to option cover stream
+    - The option cover stream continously balances the strike to market price differential for the owner
+    - Ensuring the NFT owner doesn't loose the NFT or has to pay large lump-sum, on in-the-money option
+    - Incentivizing NFT owner to provide their NFTs, improve liquidity and realize financial upside
+- Protocol will automatically distribute the share of option premiums to NFT owners in the collection
 
 ## Technical Implementation
 
