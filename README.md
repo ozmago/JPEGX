@@ -42,12 +42,12 @@
 - [License](#license)
 - [Thanks](#thanks)
 
-## In a nutshell
+## In a nutshell 🥜
 
 - NFT holders are not incentivized enough to become option writers, despite the financial upside
 - Our goal is to attract NFT holders to become option writers and bootstrap the NFT options economy
 
-## Concept
+## Concept 💡
 
 - NFT owners can 'write options' on their NFTs
 - Option callers can purchase the options, at a given strike price, for a given premium and time
@@ -61,7 +61,7 @@
   - NFT is returned to owner, even if the option goes against them
   - Option coverage solution is created to protect the owners from large lump sum expense, at expiry
 
-## Product
+## Product 📦
 
 - Protocol defines strike price and premium pricing options
 - Protocol stakes the NFT for the option duration
@@ -74,7 +74,7 @@
 - Protocol will automatically distribute the share of option premiums to NFT owners in the collection
   - Distributions will happen when the option doesn't expire _in-the-money_
 
-## Technical Implementation
+## Technical Implementation 🛠
 
 - Smart Contract defines option details per NFT Collection and stakes NFTs
   - Strike Price
@@ -82,7 +82,7 @@
   - Duration
     - Pricing Oracles will be used to establish Strike Price
     - Bonding curves will define strike to premium price for multiple options
-- Martket price will be retrieved by Oracles
+- Martket price will be retrieved by <a href="https://tellor.io/"> Tellor Oracle </a>
 - Bonding curves will be used to define premiums
 - Smart Contract governs the option expiry and distribution of profit shares to writers or of strike:market price differential to callers
 - To distribute the shares of NFT pool's premiums to NFT owners, <a href="https://docs.superfluid.finance/superfluid/developers/interactive-tutorials/instant-distribution">Superfluid IDA</a> is used
@@ -91,13 +91,13 @@
   - Provides ongoing balancing of strike to market price differential for option writers, in a sigle transaction.
   - Keeper will be used for ongoing stream monitoring and flow rate adjustments within the epoch
 
-### The flow:
+### The flow: 🔎
 
 <a>
     <img src="packages/assets/technical_picture.png" alt="Technical picture">
   </a>
 
-## Business Potential
+## Business Potential 🤑
 
 - Notional value of single stock options was over 10% higher than spot in 2021
 - This trend shows no sign of slowing crypto option platforms, such as LRA Opix and Z are growing
