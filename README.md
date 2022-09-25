@@ -80,9 +80,13 @@
 
 ## Business Potential
 
-- The Renter pays a rental fee to the Lender, via our NFTMarket smart contract.
-- The platform will charge an extra percentage to the renter on top of the rental cost
-- The platform can eventually make profits by providing API data about nft statistics, once the volume of the NFT listed is high enough
+- Notional value of single stock options was over 10% higher than spot in 2021.
+- This trend shows no sign of slowing crypto option platforms, such as LRA Opix and Z are growing.
+- We see the same happening for NFTs, despite the bear, the top 10 NFT collections
+  - Total over 2.5 million E in market cap
+  - Over 3 million in daily trading on OPC alone
+  - No team has succeeded yet in finding product market fit and gaining any significant traction.
+- The financialization of NFTs is inevitable
 
 ## 🧐 License
 
