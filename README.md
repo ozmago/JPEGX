@@ -34,12 +34,18 @@
 
 ## Table of Contents
 
+- [In a nutshell](#in-a-nutshell)
 - [Concept](#concept)
 - [Product](#product)
 - [Technical Implementation](#technical-implementation)
 - [Business Potential](#business-potential)
 - [License](#license)
 - [Thanks](#thanks)
+
+## In a nutshell
+
+- NFT holders are not incentivized enough to become option writers, despite the financial upside
+- Our goal is to attract NFT holders to become option writers and bootstrap the NFT options economy
 
 ## Concept
 
