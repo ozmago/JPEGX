@@ -274,17 +274,7 @@ export default function index() {
 
       </div>
 
-      <div className="flex flex-col rounded-xl  p-4"
-        style={{
-  
-          backdropFilter: 'saturate(180%) blur(14px)',
-          background: '#454545',
-        }}
-      >
-          
-
-     
-      </div>
+      
 
       </div>
 
@@ -322,7 +312,7 @@ export default function index() {
     {/* {} */}
 
 </div>
-         <div className="flex justify-evenly">
+         <div className="flex mt-10 justify-center items-center ">
   <div className="flex  justify-center items-center border-b border-teal-500 py-2">
 
     <input className="appearance-none bg-transparent border-none w-full text-white mr-3 py-4 px-1 leading-tight focus:outline-none" type="number" placeholder="Enter Amount" aria-label="Full name"></input>
@@ -341,45 +331,7 @@ export default function index() {
          </div>
          
 
-        <div className="grid gap-4 grid-cols-3 mt-5">
-        <div className="flex flex-col rounded-xl  p-4"
-        style={{
-  
-          backdropFilter: 'saturate(180%) blur(14px)',
-          background: '#454545',
-        }}
-      >
          
-     
-      </div>
-
-      <div className="flex flex-col rounded-xl  p-4"
-        style={{
-  
-          backdropFilter: 'saturate(180%) blur(14px)',
-          background: '#454545',
-        }}
-      >
-
-         
-
-     
-      </div>
-
-      <div className="flex flex-col rounded-xl  p-4"
-        style={{
-  
-          backdropFilter: 'saturate(180%) blur(14px)',
-          background: '#454545',
-        }}
-      >
-          
-
-
-     
-      </div>
-
-      </div>
 
             <div className="">
              
@@ -412,8 +364,17 @@ export default function index() {
       <div className="flex flex-col mt-10 rounded-xl p-3 bg-blue-gray-500">
         
         <div className="flex flex-col  rounded-b-xl py-3 ">
+        <div className="flex  justify-between font-mono">
+            <p>Option</p>
+            <p>Strike prize</p>
+            <p>Total deposits</p>
+            <p>Total purchased</p>
+          </div>
+        <div className="flex flex-col mt-5 rounded-xl p-1 bg-black">
+        
           <div className="flex justify-between">
-          <div className="">
+            
+          <div className="container mx-auto max-w-6xl p-8 2xl:px-0">
          <Image
       src="/bayc-footer.webp"
       alt="Picture of the author"
@@ -423,9 +384,7 @@ export default function index() {
          </div>
             <h1 className="font-bold font-RubikBold">1</h1>
           </div>
-          <div className="flex  justify-between font-mono">
-            <p>Available: 0.01</p>
-            <p>Option Size</p>
+         
           </div>
         </div>
 
@@ -439,39 +398,22 @@ export default function index() {
         
         <div className="flex flex-col  rounded-b-xl py-3 ">
         <div className="absolute left-1/2 -ml-0.5 w-0.5 h-10 bg-gray-600"></div>
-          <div className="flex justify-between">
-          <div className="">
+        <div className="flex flex-col mt-5 rounded-xl p-1 bg-black">
         
-         </div>
-            <h1 className="font-bold font-RubikBold">16 Sep 2022</h1>
-          </div>
-          <div className="flex  justify-between font-mono">
-            <p>ETH90</p>
-            
-            <p>Expiry</p>
-          </div>
-
-          <div className="flex mt-5 justify-between font-mono">
-            <p>Breakeven</p>
-            
-            <p>ETH 96.8823529</p>
-          </div>
-
-          <div className="flex mt-5 justify-between font-mono">
-            <p>Option Price</p>
-            
-            <p>ETH 6.8823529</p>
-          </div>
-          <div className="flex mt-5 justify-between font-mono">
-            <p>Side</p>
-            
-            <p>CALL</p>
-          </div>
-          <div className="flex mt-5 justify-between font-mono">
-            <p>IV</p>
-            
-            <p>122</p>
-          </div>
+        <div className="flex justify-between">
+          
+        <div className="container mx-auto max-w-6xl p-8 2xl:px-0">
+       <Image
+    src="/bayc-footer.webp"
+    alt="Picture of the author"
+    width={70}
+    height={70}
+         />
+       </div>
+          <h1 className="font-bold font-RubikBold">1</h1>
+        </div>
+       
+        </div>
         </div>
 
         
@@ -485,35 +427,22 @@ export default function index() {
         <div className="flex flex-col  rounded-b-xl py-3 ">
         
   
-        <div className="flex mt-5 justify-between font-mono">
-            <p>Purchasing with</p>
-            
-            <p>WETH</p>
-          </div>
+        <div className="flex flex-col mt-5 rounded-xl p-1 bg-black">
         
-          <div className="flex mt-5 justify-between font-mono">
-            <p>Option Size</p>
-            
-            <p>ETH 6.8823529</p>
-          </div>
-
-          <div className="flex mt-5 justify-between font-mono">
-            <p>Fees</p>
-            
-            <p>ETH 6.8823529</p>
-          </div>
-
-          <div className="flex mt-5 justify-between font-mono">
-            <p>Premium</p>
-            
-            <p>ETH 6.8823529</p>
-          </div>
-           
-          <div className="flex mt-5 justify-between font-mono">
-            <p>You will pay</p>
-            
-            <p>ETH 6.975882162668819 WETH</p>
-          </div>
+        <div className="flex justify-between">
+          
+        <div className="container mx-auto max-w-6xl p-8 2xl:px-0">
+       <Image
+    src="/bayc-footer.webp"
+    alt="Picture of the author"
+    width={70}
+    height={70}
+         />
+       </div>
+          <h1 className="font-bold font-RubikBold">1</h1>
+        </div>
+       
+        </div>
  
            
  
@@ -522,11 +451,9 @@ export default function index() {
 
           
         </div>
-      <p className="flex justify-center font-bold mb-5">This option will Auto Exercise and can be settled anytime after expiry</p>
+      <p className="flex justify-center font-bold mb-5">Contract address:</p>
         <div className="flex justify-center mb-10 container mx-auto max-w-6xl p-8 2xl:px-0">
-        <button className="relative z-0 rounded bg-pink-500 px-80 py-3 transition-[all_0.3s_ease] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-0 after:rounded after:bg-pink-700 after:transition-[all_0.3s_ease]  hover:after:w-full ">
-        Collateral not available
-  </button>
+   
         </div>
       </div>
       
