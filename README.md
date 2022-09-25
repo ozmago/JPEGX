@@ -50,14 +50,13 @@
 ## Concept
 
 - NFT owners can 'write options' on their NFTs
-- Option callers can purchase the options, at a given strike price, for a given premium
-- The option expires at a given time
-- Our options are european, cash settled
-- If the option expires 'in-the-money', the sequence goes as follows:
+- Option callers can purchase the options, at a given strike price, for a given premium and time
+- Our options are **european**, **cash settled**
+- If the option expires _in-the-money_, the sequence goes as follows:
   - The NFT holder can provide the strike vs. market price difference to option caller, or
   - Option caller can receive the NFT at option's strike price, or
   - NFT is auctioned off
-- If the option doesn't expire 'in the money', option premiums are distributed to NFT owners
+- If the option doesn't expire _in-the-money_, option premiums are distributed to NFT owners
 - NFT owners are incentivized to gain passive income and provide liquidity
   - NFT is returned to owner, even if the option goes against them
   - Option coverage solution is created to protect the owners from large lump sum expense, at expiry
@@ -69,11 +68,11 @@
   - NFTs are pooled with other NFTs OF THE SAME COLLECTION
   - At staking time, the NFT owner has the option to subscribe to option cover stream
     - The option cover stream continously balances the strike to market price differential for the owner
-    - Ensuring the NFT owner doesn't loose the NFT or has to pay large lump-sum, on in-the-money option
+    - Ensuring the NFT owner doesn't loose the NFT or has to pay large lump-sum, on _in-the-money_ option
     - Incentivizing NFT owner to provide their NFTs, improve liquidity and realize financial upside
     - Otherwise NFT owner might need to pay lump sum price differential between strike and market price, to keep NFT
 - Protocol will automatically distribute the share of option premiums to NFT owners in the collection
-  - Distributions will happen when the option doesn't expire in-the-money
+  - Distributions will happen when the option doesn't expire _in-the-money_
 
 ## Technical Implementation
 
@@ -83,7 +82,7 @@
   - Duration
     - Pricing Oracles will be used to establish Strike Price
     - Bonding curves will define strike to premium price for multiple options
-- Martket price will be retrieved by oracles
+- Martket price will be retrieved by Oracles
 - Bonding curves will be used to define premiums
 - Smart Contract governs the option expiry and distribution of profit shares to writers or of strike:market price differential to callers
 - To distribute the shares of NFT pool's premiums to NFT owners, <a href="https://docs.superfluid.finance/superfluid/developers/interactive-tutorials/instant-distribution">Superfluid IDA</a> is used
