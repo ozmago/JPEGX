@@ -43,12 +43,15 @@
 
 ## Concept
 
-- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
-- Lorem ipsum Duis at nunc nec enim semper!
-- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id:
-  - Lorem ipsum Duis at nunc nec enim semper malesuada sit
-  - Lorem ipsum Duis at nunc nec enim semper malesuada sit
-  - Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+- NFT holders can write options on their NFTs
+- Option callers can purchase the options, at a given strike price, for given premium
+- The option expires at a given time
+- Our options are european, cash settled
+- If the option expires 'in-the-money'
+  - The NFT holder can provide the strike vs. market price difference to option caller
+  - Option caller can receive the NFT at option's strike price
+  - NFT can be auctioned off
+- Otherwise the NFT holder receives the share of pool's option premiums
 
 ## Product
 
