@@ -1,122 +1,93 @@
-# 🏗 Scaffold-ETH
+<h1 align="center">
+  JPEG X
+</h1>
 
-> everything you need to build on Ethereum! 🚀
-
-🧪 Quickly experiment with Solidity using a frontend that adapts to your smart contract:
-
-![image](https://user-images.githubusercontent.com/2653167/124158108-c14ca380-da56-11eb-967e-69cde37ca8eb.png)
-
-
-# 🏄‍♂️ Quick Start
-
-Prerequisites: [Node (v16 LTS)](https://nodejs.org/en/download/) plus [Yarn](https://classic.yarnpkg.com/en/docs/install/) and [Git](https://git-scm.com/downloads)
-
-> clone/fork 🏗 scaffold-eth:
-
-```bash
-git clone https://github.com/scaffold-eth/scaffold-eth.git
-```
-
-> install and start your 👷‍ Hardhat chain:
-
-```bash
-cd scaffold-eth
-yarn install
-yarn chain
-```
-
-> in a second terminal window, start your 📱 frontend:
-
-```bash
-cd scaffold-eth
-yarn start
-```
-
-> in a third terminal window, 🛰 deploy your contract:
-
-```bash
-cd scaffold-eth
-yarn deploy
-```
-
-🔏 Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-
-📝 Edit your frontend `App.jsx` in `packages/react-app/src`
-
-💼 Edit your deployment scripts in `packages/hardhat/deploy`
-
-📱 Open http://localhost:3000 to see the app
-
-# 📚 Documentation
-
-Documentation, tutorials, challenges, and many more resources, visit: [docs.scaffoldeth.io](https://docs.scaffoldeth.io)
-
-
-# 🍦 Other Flavors
-- [scaffold-eth-typescript](https://github.com/scaffold-eth/scaffold-eth-typescript)
-- [scaffold-eth-tailwind](https://github.com/stevenpslade/scaffold-eth-tailwind)
-- [scaffold-nextjs](https://github.com/scaffold-eth/scaffold-eth/tree/scaffold-nextjs)
-- [scaffold-chakra](https://github.com/scaffold-eth/scaffold-eth/tree/chakra-ui)
-- [eth-hooks](https://github.com/scaffold-eth/eth-hooks)
-- [eth-components](https://github.com/scaffold-eth/eth-components)
-- [scaffold-eth-expo](https://github.com/scaffold-eth/scaffold-eth-expo)
-- [scaffold-eth-truffle](https://github.com/trufflesuite/scaffold-eth)
-
-
-
-# 🔭 Learning Solidity
-
-📕 Read the docs: https://docs.soliditylang.org
-
-📚 Go through each topic from [solidity by example](https://solidity-by-example.org) editing `YourContract.sol` in **🏗 scaffold-eth**
-
-- [Primitive Data Types](https://solidity-by-example.org/primitives/)
-- [Mappings](https://solidity-by-example.org/mapping/)
-- [Structs](https://solidity-by-example.org/structs/)
-- [Modifiers](https://solidity-by-example.org/function-modifier/)
-- [Events](https://solidity-by-example.org/events/)
-- [Inheritance](https://solidity-by-example.org/inheritance/)
-- [Payable](https://solidity-by-example.org/payable/)
-- [Fallback](https://solidity-by-example.org/fallback/)
-
-📧 Learn the [Solidity globals and units](https://docs.soliditylang.org/en/latest/units-and-global-variables.html)
-
-# 🛠 Buidl
-
-Check out all the [active branches](https://github.com/scaffold-eth/scaffold-eth/branches/active), [open issues](https://github.com/scaffold-eth/scaffold-eth/issues), and join/fund the 🏰 [BuidlGuidl](https://BuidlGuidl.com)!
-
+<p align="center">
   
- - 🚤  [Follow the full Ethereum Speed Run](https://medium.com/@austin_48503/%EF%B8%8Fethereum-dev-speed-run-bd72bcba6a4c)
+</p>
 
+<p align="center">
+  <strong>
+    Decentralized NFT Options
+  </strong>
+</p>
 
- - 🎟  [Create your first NFT](https://github.com/scaffold-eth/scaffold-eth/tree/simple-nft-example)
- - 🥩  [Build a staking smart contract](https://github.com/scaffold-eth/scaffold-eth/tree/challenge-1-decentralized-staking)
- - 🏵  [Deploy a token and vendor](https://github.com/scaffold-eth/scaffold-eth/tree/challenge-2-token-vendor)
- - 🎫  [Extend the NFT example to make a "buyer mints" marketplace](https://github.com/scaffold-eth/scaffold-eth/tree/buyer-mints-nft)
- - 🎲  [Learn about commit/reveal](https://github.com/scaffold-eth/scaffold-eth-examples/tree/commit-reveal-with-frontend)
- - ✍️  [Learn how ecrecover works](https://github.com/scaffold-eth/scaffold-eth-examples/tree/signature-recover)
- - 👩‍👩‍👧‍👧  [Build a multi-sig that uses off-chain signatures](https://github.com/scaffold-eth/scaffold-eth/tree/meta-multi-sig)
- - ⏳  [Extend the multi-sig to stream ETH](https://github.com/scaffold-eth/scaffold-eth/tree/streaming-meta-multi-sig)
- - ⚖️  [Learn how a simple DEX works](https://medium.com/@austin_48503/%EF%B8%8F-minimum-viable-exchange-d84f30bd0c90)
- - 🦍  [Ape into learning!](https://github.com/scaffold-eth/scaffold-eth/tree/aave-ape)
+<p align="center">
+  Just as in traditional art market ... <br>... the financialization of NFTs is inevitable
+</p>
 
-# 💌 P.S.
+<p align="center">
+  <a>
+    <img src="" alt="NFT Options">
+  </a>
+  <a>
+    <img src="" alt="Powered by Superfluid">
+  </a>
+  <a>
+    <img src="" alt="Runs on Polygon">
+  </a>
+</p>
 
-🌍 You need an RPC key for testnets and production deployments, create an [Alchemy](https://www.alchemy.com/) account and replace the value of `ALCHEMY_KEY = xxx` in `packages/react-app/src/constants.js` with your new key.
+[<img src="packages/assets/option_management.png" alt="JPEGX">](https://conveyr.xyz/)
 
-📣 Make sure you update the `InfuraID` before you go to production. Huge thanks to [Infura](https://infura.io/) for our special account that fields 7m req/day!
+<!-- [**👉 Our Glorious Deployment URL 👈**](https://conveyr.xyz/) -->
 
-# 🏃💨 Speedrun Ethereum
-Register as a builder [here](https://speedrunethereum.com) and start on some of the challenges and build a portfolio.
+## Table of Contents
 
-# 💬 Support Chat
+- [Concept](#concept)
+- [Product](#product)
+- [Technical Implementation](#technical-implementation)
+- [Business Potential](#business-potential)
+- [License](#license)
+- [Thanks](#thanks)
 
-Join the telegram [support chat 💬](https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA) to ask questions and find others building with 🏗 scaffold-eth!
+## Concept
 
----
+- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+- Lorem ipsum Duis at nunc nec enim semper!
+- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id:
+  - Lorem ipsum Duis at nunc nec enim semper malesuada sit
+  - Lorem ipsum Duis at nunc nec enim semper malesuada sit
+  - Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
 
-🙏 Please check out our [Gitcoin grant](https://gitcoin.co/grants/2851/scaffold-eth) too!
+## Product
 
-### Automated with Gitpod
+- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+- Lorem ipsum Duis at nunc nec enim semper malesuada:
+  - Lorem ipsum Duis at nunc
+  - Lorem ipsum Duis at nunc
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#github.com/scaffold-eth/scaffold-eth)
+## Technical Implementation
+
+- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+
+### The flow:
+
+1. Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+2. Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+3. Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+4. Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+
+<a>
+    <img src="packages/assets/technical_picture.png" alt="Technical picture">
+  </a>
+
+## Business Potential
+
+- The Renter pays a rental fee to the Lender, via our NFTMarket smart contract.
+- The platform will charge an extra percentage to the renter on top of the rental cost
+- The platform can eventually make profits by providing API data about nft statistics, once the volume of the NFT listed is high enough
+
+## 🧐 License
+
+Licensed under the [MIT License](./LICENSE).
+
+## 💜 Thanks
+
+Thanks go out to all of the many sponsors and [ETHOnline](https://ethglobal.com/events/ethonline2022/home)
