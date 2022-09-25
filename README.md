@@ -51,7 +51,7 @@
 
 - NFT owners can 'write options' on their NFTs
 - Option callers can purchase the options, at a given strike price, for a given premium and time
-- Our options are **european**, **cash settled**
+- JPEG X options are **european**, **cash settled**
 - If the option expires _in-the-money_, the sequence goes as follows:
   - The NFT holder can provide the strike vs. market price difference to option caller, or
   - Option caller can receive the NFT at option's strike price, or
