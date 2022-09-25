@@ -18,13 +18,13 @@
 
 <p align="center">
   <a>
-    <img src="" alt="NFT Options">
+    <img src="packages/assets/nft-options.svg" alt="NFT Options">
   </a>
   <a>
-    <img src="" alt="Powered by Superfluid">
+    <img src="packages/assets/powered-by-superfluid.svg" alt="Powered by Superfluid">
   </a>
   <a>
-    <img src="" alt="Runs on Polygon">
+    <img src="packages/assets/runs-on-polygon.svg" alt="Runs on Polygon">
   </a>
 </p>
 
