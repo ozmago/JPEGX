@@ -65,7 +65,6 @@
 ## Product
 
 - Protocol defines strike price and premium pricing options
-  - Martket price oracles and bonding curves will be used
 - Protocol stakes the NFT for the option duration
   - NFTs are pooled with other NFTs OF THE SAME COLLECTION
   - At staking time, the NFT owner has the option to subscribe to option cover stream
@@ -84,6 +83,8 @@
   - Duration
     - Pricing Oracles will be used to establish Strike Price
     - Bonding curves will define strike to premium price for multiple options
+- Martket price will be retrieved by oracles
+- Bonding curves will be used to define premiums
 - Smart Contract governs the option expiry and distribution of profit shares to writers or of strike:market price differential to callers
 - To distribute the shares of NFT pool's premiums to NFT owners, <a href="https://docs.superfluid.finance/superfluid/developers/interactive-tutorials/instant-distribution">Superfluid IDA</a> is used
   - Ensures gas efficient distribuition of pool shares to multiple addresses
@@ -99,9 +100,9 @@
 
 ## Business Potential
 
-- Notional value of single stock options was over 10% higher than spot in 2021.
-- This trend shows no sign of slowing crypto option platforms, such as LRA Opix and Z are growing.
-- We see the same happening for NFTs, despite the bear, the top 10 NFT collections
+- Notional value of single stock options was over 10% higher than spot in 2021
+- This trend shows no sign of slowing crypto option platforms, such as LRA Opix and Z are growing
+- We see the same happening for NFTs, despite the bear 🧸, the top 10 NFT collections
   - Total over 2.5 million E in market cap
   - Over 3 million in daily trading on OPC alone
   - No team has succeeded yet in finding product market fit and gaining any significant traction.
