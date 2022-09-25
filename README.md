@@ -43,7 +43,7 @@
 
 ## Concept
 
-- NFT holders can write options on their NFTs
+- NFT owners can 'write options' on their NFTs
 - Option callers can purchase the options, at a given strike price, for given premium
 - The option expires at a given time
 - Our options are european, cash settled
@@ -58,26 +58,30 @@
 - NFT owner writes an option on the NFT
 - Protocol defines strike price and premium pricing options
   - Martket price oracles and bonding curves will be used
-- NFT is staked for the option duration, in a pool with other NFTs OF THE SAME COLLECTION
-  - At staking time, the NFT holder has the option to subscribe to option cover stream
+- Protocol stakes the NFT for the option duration
+  - NFTs are pooled with other NFTs OF THE SAME COLLECTION
+  - At staking time, the NFT owner has the option to subscribe to option cover stream
     - The option cover stream continously balances the strike to market price differential for the owner
     - Ensuring the NFT owner doesn't loose the NFT or has to pay large lump-sum, on in-the-money option
     - Incentivizing NFT owner to provide their NFTs, improve liquidity and realize financial upside
+    - Otherwise NFT owner might need to pay lump sum price differential between strike and market price, to keep NFT
 - Protocol will automatically distribute the share of option premiums to NFT owners in the collection
+  - This will happen when the option doesn't expire in-the-money
 
 ## Technical Implementation
 
-- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
-- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
-- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
-- Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
+- Smart Contract defines option details per NFT Collection
+  - Strike Price
+  - Premium Price
+  - Duration
+    - Pricing Oracles will be used to establish Strike Price
+    - Bonding curves will define strike to premium price for multiple options
+- To distribute the shares of NFT pool's premiums to NFT owners, <a href="https://docs.superfluid.finance/superfluid/developers/interactive-tutorials/instant-distribution">Superfluid IDA</a> is used
+  - Ensures gas efficient distribuition of pool shares to multiple addresses
+- To create an ongoing option coverage to NFT ownere, <a href="https://docs.superfluid.finance/superfluid/developers/constant-flow-agreement-cfa">Superfluid CFA</a> is used
+  - Provides ongoing balancing of strike to market price differential for option writers, in a sigle transaction.
 
 ### The flow:
-
-1. Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
-2. Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
-3. Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
-4. Lorem ipsum Duis at nunc nec enim semper malesuada sit amet id
 
 <a>
     <img src="packages/assets/technical_picture.png" alt="Technical picture">
