@@ -68,7 +68,7 @@
   - NFTs are pooled with other NFTs OF THE SAME COLLECTION
   - At staking time, the NFT owner has the option to subscribe to option cover stream
     - The option cover stream continously balances the strike to market price differential for the owner
-    - Ensuring the NFT owner doesn't loose the NFT or has to pay large lump-sum, on _in-the-money_ option
+    - Ensuring the NFT owner doesn't loose the NFT or has to pay large lump sum, on _in-the-money_ option expiry
     - Incentivizing NFT owner to provide their NFTs, improve liquidity and realize financial upside
     - Otherwise NFT owner might need to pay lump sum price differential between strike and market price, to keep NFT
 - Protocol will automatically distribute the share of option premiums to NFT owners in the collection
