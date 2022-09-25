@@ -50,7 +50,7 @@
 ## Concept
 
 - NFT owners can 'write options' on their NFTs
-- Option callers can purchase the options, at a given strike price, for given premium
+- Option callers can purchase the options, at a given strike price, for a given premium
 - The option expires at a given time
 - Our options are european, cash settled
 - If the option expires 'in-the-money', the sequence goes as follows:
@@ -58,10 +58,12 @@
   - Option caller can receive the NFT at option's strike price, or
   - NFT is auctioned off
 - If the option doesn't expire 'in the money', option premiums are distributed to NFT owners
+- NFT owners are incentivized to gain passive income and provide liquidity
+  - NFT is returned to owner, even if the option goes against them
+  - Option coverage solution is created to protect the owners from large lump sum expense, at expiry
 
 ## Product
 
-- NFT owner writes an option on the NFT
 - Protocol defines strike price and premium pricing options
   - Martket price oracles and bonding curves will be used
 - Protocol stakes the NFT for the option duration
