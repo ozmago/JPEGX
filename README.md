@@ -66,20 +66,22 @@
     - Incentivizing NFT owner to provide their NFTs, improve liquidity and realize financial upside
     - Otherwise NFT owner might need to pay lump sum price differential between strike and market price, to keep NFT
 - Protocol will automatically distribute the share of option premiums to NFT owners in the collection
-  - This will happen when the option doesn't expire in-the-money
+  - Distributions will happen when the option doesn't expire in-the-money
 
 ## Technical Implementation
 
-- Smart Contract defines option details per NFT Collection
+- Smart Contract defines option details per NFT Collection and stakes NFTs
   - Strike Price
   - Premium Price
   - Duration
     - Pricing Oracles will be used to establish Strike Price
     - Bonding curves will define strike to premium price for multiple options
+- Smart Contract governs the option expiry and distribution of profit shares to writers or of strike:market price differential to callers
 - To distribute the shares of NFT pool's premiums to NFT owners, <a href="https://docs.superfluid.finance/superfluid/developers/interactive-tutorials/instant-distribution">Superfluid IDA</a> is used
   - Ensures gas efficient distribuition of pool shares to multiple addresses
-- To create an ongoing option coverage to NFT ownere, <a href="https://docs.superfluid.finance/superfluid/developers/constant-flow-agreement-cfa">Superfluid CFA</a> is used
+- To create an ongoing option coverage to NFT owner, <a href="https://docs.superfluid.finance/superfluid/developers/constant-flow-agreement-cfa">Superfluid CFA</a> is used
   - Provides ongoing balancing of strike to market price differential for option writers, in a sigle transaction.
+  - Keeper will be used for ongoing stream monitoring and flow rate adjustments within the epoch
 
 ### The flow:
 
