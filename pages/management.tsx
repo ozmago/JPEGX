@@ -65,18 +65,11 @@ export default function index() {
          
 
         <div className="grid gap-4 grid-cols-3 mt-5">
-        <div className="flex flex-col rounded-xl  p-4"
-        style={{
-  
-          backdropFilter: 'saturate(180%) blur(14px)',
-          background: '#454545',
-        }}
-      >
-      </div>
+       
 
       </div>
        {/* Epoch button */}
-       <div className="flex justify-center">
+       <div className="flex justify-left">
   <div>
     <div className="dropdown relative">
       <button
@@ -129,7 +122,7 @@ export default function index() {
           dropdown-menu
           min-w-max
           absolute
-          hidden
+          
           bg-white
           text-base
           z-50
@@ -223,6 +216,7 @@ export default function index() {
             Buy CALL Options
           </button>
 
+          <div className="flex justify-start">
           <div className="grid gap-4 grid-cols-3 mt-5">
         <div className="flex flex-col rounded-xl  p-4"
         style={{
@@ -232,7 +226,7 @@ export default function index() {
         }}
       >
           <div className="px-12 text-center sm:px-0">
-            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full sm:w-12 sm:h-12">
+            <div className="flex  w-10 h-10 mx-auto mb-4 rounded-full sm:w-12 sm:h-12">
             <Image
       src="/increase.png"
       alt="Picture of the author"
@@ -277,7 +271,7 @@ export default function index() {
       
 
       </div>
-
+      </div>
           
           
         </div>
@@ -291,9 +285,7 @@ export default function index() {
         <div className=" bg-black sm:p-10 p-6 rounded-xl">
           
         <div className=" flex justify-between   ">
-         <p className="font-bold text-2xl">
-         Deposit
-         </p>
+        
 
          
          <div className="flex flex-col mt-10 justify-center rounded-xl  p-4"
@@ -306,13 +298,144 @@ export default function index() {
         <div className="flex justify-between">
     <p className="">Balance</p>
     <p className="">5 BAYC</p>
+     </div>
 
-    {/* {} */}
-    
-    {/* {} */}
-
+      {/* strike prize button */}
+      <div className="">
+  <div>
+    <div className="dropdown relative">
+      <button
+        className="
+          dropdown-toggle
+          mt-5
+          w-full
+          px-6
+          py-2.5
+          bg-gray-500
+          text-white
+          font-medium
+          text-xs
+          leading-tight
+          uppercase
+          rounded
+          shadow-md
+         
+          transition
+          duration-150
+          ease-in-out
+          flex
+          items-center
+          whitespace-nowrap
+        "
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Epoch 2 (Current)
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="fas"
+          data-icon="caret-down"
+          className="w-2 ml-2"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 320 512"
+        >
+          <path
+            fill="currentColor"
+            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+          ></path>
+        </svg>
+      </button>
+      <ul
+        className="
+          dropdown-menu
+          min-w-max
+          absolute
+          
+          bg-white
+          text-base
+          z-50
+          float-left
+          py-2
+          list-none
+          text-left
+          rounded-lg
+          shadow-lg
+          mt-1
+          hidden
+          m-0
+          bg-clip-padding
+          border-none
+        "
+        aria-labelledby="dropdownMenuButton1"
+      >
+        <li>
+          <a
+            className="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+            href="#"
+            >Epoch 1</a
+          >
+        </li>
+        <li>
+          <a
+            className="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+            href="#"
+            >Epoch 2</a
+          >
+        </li>
+        <li>
+          <a
+            className="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+            href="#"
+            >Epoch 3</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
+       {/* Epoch button end */}
          <div className="flex mt-10 justify-center items-center ">
+          
   <div className="flex  justify-center items-center border-b border-teal-500 py-2">
 
     <input className="appearance-none bg-transparent border-none w-full text-white mr-3 py-4 px-1 leading-tight focus:outline-none" type="number" placeholder="Enter Amount" aria-label="Full name"></input>
@@ -331,14 +454,65 @@ export default function index() {
          </div>
          
 
-         
+         {/* Epoch Info Section starts */}
 
             <div className="">
              
-            <div className="max-w-xs rounded-md shadow-md bg-gray-900 text-gray-100">
+            <div className="flex flex-col mt-10 justify-center rounded-xl  p-4"
+        style={{
+  
+          backdropFilter: 'saturate(180%) blur(14px)',
+          background: '#454545',
+        }}
+      >
+        <div className="flex justify-between">
+    <p className="">Epoch</p>
+    <p className="Font-bold">2</p>
+     </div>
+
+     <div className="flex justify-between">
+    <p className="">Withdrawable</p>
+    <p className="font-bold">16 Sep 2022</p>
+     </div>
         
             </div>
             </div>
+
+          {/* Epoch Info Section starts */}
+
+           {/* Epoch Info Section starts */}
+
+           <div className="">
+             
+             <div className="flex flex-col mt-10 justify-center rounded-xl  p-4"
+         style={{
+   
+           backdropFilter: 'saturate(180%) blur(14px)',
+           background: '#454545',
+         }}
+       >
+
+         {/* gas cost section starts */}
+
+         <div className="">
+             
+             <div className="flex flex-col mt-10 justify-center rounded-xl  p-2"
+         style={{
+   
+           backdropFilter: 'saturate(180%) blur(14px)',
+           background: '#454545',
+         }}
+       >
+         
+             </div>
+             </div>
+ 
+           {/* Egas cost section ends */}
+         
+             </div>
+             </div>
+ 
+           {/* Epoch Info Section starts */}
             <button
             type="button"
             className="flex items-center justify-center w-full p-3 mt-5 font-semibold tracking-wide rounded-md bg-blue-700 text-gray-200"
