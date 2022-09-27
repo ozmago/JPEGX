@@ -8,11 +8,13 @@ import "./Auction.sol";
 import "./PremiumDistribution.sol";
 import "https://github.com/tellor-io/usingtellor/blob/master/contracts/UsingTellor.sol";
 
-contract JPEGXStakeContract is ERC721Holder, Auction,UsingTellor {
+contract JPEGXStakeContract is ERC721Holder, Auction, UsingTellor {
     uint256 public immutable optionExpiration = 1 hours;
     uint256 public immutable coverPositionExpiry = 1 hours;
     uint256 public immutable mockOptionPrice = 125000000 gwei;
-    address payable tellormock = payable(0x7B8AC044ebce66aCdF14197E8De38C1Cc802dB4A);
+    uint256 public immutable premiumFees = 10000000 gwei;
+    address payable tellormock =
+        payable(0x7B8AC044ebce66aCdF14197E8De38C1Cc802dB4A);
     //ISuperfluid superfluidhost = ISuperfluid(0xEB796bdb90fFA0f28255275e16936D25d3418603);
     //ISuperToken superfluidtoken = ISuperToken(0x96B82B65ACF7072eFEb00502F45757F254c2a0D4);
     mapping(uint256 => uint256) public tokenId_strikePrice;
@@ -25,8 +27,8 @@ contract JPEGXStakeContract is ERC721Holder, Auction,UsingTellor {
     mapping(uint256 => uint256) public tokenId_coverPositionAmount;
     mapping(uint256 => bool) public tokenId_liquidable;
     IERC721 token;
-    PremiumDistribution shareDistribution = PremiumDistribution(0x5551F981E586AbC07b2531658Eb900AC9E9DA5cB);
-
+    PremiumDistribution shareDistribution =
+        PremiumDistribution(0x5551F981E586AbC07b2531658Eb900AC9E9DA5cB);
 
     event Staked(
         address indexed owner,
@@ -43,8 +45,12 @@ contract JPEGXStakeContract is ERC721Holder, Auction,UsingTellor {
     );
     event LiquidatedNFT(uint256 id, uint256 time);
     event withdrawdNFT(address indexed owner, uint256 id, uint256 time);
+    event GetOraclePrice(uint256 marketPrice);
 
-    constructor(address _tokenAddress) Auction(_tokenAddress) UsingTellor(tellormock) {
+    constructor(address _tokenAddress)
+        Auction(_tokenAddress)
+        UsingTellor(tellormock)
+    {
         token = IERC721(_tokenAddress);
     }
 
@@ -113,7 +119,7 @@ contract JPEGXStakeContract is ERC721Holder, Auction,UsingTellor {
             tokenId_coverPositionExpiry[_tokenId] =
                 block.timestamp +
                 coverPositionExpiry;
-            tokenId_coverPositionAmount[_tokenId] = marketPrice - strikePrice; 
+            tokenId_coverPositionAmount[_tokenId] = marketPrice - strikePrice;
             //start(_tokenId, 1300 wei);
         } else {
             //  Option expires worthless
@@ -163,28 +169,52 @@ contract JPEGXStakeContract is ERC721Holder, Auction,UsingTellor {
         emit withdrawdNFT(msg.sender, _tokenId, block.timestamp);
     }
 
-    //  Mock function -- Waiting for Oracle
-    function getPrice() public view returns(uint256) {
-    
-      bytes memory _queryData = abi.encode("ExampleNftCollectionStats", abi.encode("proof-moonbirds"));
-      bytes32 _queryId = keccak256(_queryData);
-      
-      (bool ifRetrieve, bytes memory _value, ) =
-          getDataBefore(_queryId, block.timestamp - 1 hours);
-      if (!ifRetrieve) return 0;
-      // Returns moon bird floor price, 11 * 10**18
-      return abi.decode(_value, (uint256[]))[0];
+    //  Using Tellor Oracle
+    function getPrice() public view returns (uint256) {
+        bytes memory _queryData = abi.encode(
+            "ExampleNftCollectionStats",
+            abi.encode("proof-moonbirds")
+        );
+        bytes32 _queryId = keccak256(_queryData);
+
+        (bool ifRetrieve, bytes memory _value, ) = getDataBefore(
+            _queryId,
+            block.timestamp - 1 hours
+        );
+        if (!ifRetrieve) return 0;
+        // Returns moon bird floor price, 11 * 10**18
+        return abi.decode(_value, (uint256[]))[0] / 1000; // We need to divide by 1000 because we are poor, even on Mumbai Testnet
+    }
+
+    //  Using Tellor Oracle -- For Tip Transaction
+    function getPriceForTipTransaction() public returns (uint256) {
+        bytes memory _queryData = abi.encode(
+            "ExampleNftCollectionStats",
+            abi.encode("proof-moonbirds")
+        );
+        bytes32 _queryId = keccak256(_queryData);
+
+        (bool ifRetrieve, bytes memory _value, ) = getDataBefore(
+            _queryId,
+            block.timestamp - 1 hours
+        );
+        if (!ifRetrieve) return 0;
+        emit GetOraclePrice(abi.decode(_value, (uint256[]))[0]);
+        // Returns moon bird floor price, 11 * 10**18
+        return abi.decode(_value, (uint256[]))[0] / 1000; // We need to divide by 1000 because we are poor, even on Mumbai Testnet
     }
 
     //  Mock function -- Need to find the right equation
-    function getOptionPrice(uint256 _strikePrice) public view returns (uint256) {
-        /*
+    function getOptionPrice(uint256 _strikePrice)
+        public
+        view
+        returns (uint256)
+    {
         require(_strikePrice > 0, "strikePrice <0");
         uint256 marketPrice = getPrice();
         require(_strikePrice < 2 * marketPrice, "_strikePrice>2*marketPrice");
-        return marketPrice - _strikePrice / 2 + 10000000 gwei; */
-        return mockOptionPrice;
-        
+        return marketPrice - _strikePrice / 2 + premiumFees;
+        //return mockOptionPrice;
     }
 
     function finishAuction(uint256 _tokenId) public nonReentrant {
@@ -211,6 +241,4 @@ contract JPEGXStakeContract is ERC721Holder, Auction,UsingTellor {
     function distribute() internal {
         shareDistribution.distribute();
     }
-
-
 }
