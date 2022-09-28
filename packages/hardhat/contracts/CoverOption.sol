@@ -30,7 +30,9 @@ If the options turns from in-the money to out-of money, the stream will reverse 
 */
 
 interface IOracle {
-    function getMarketPrice(address asset) external returns (uint256);
+    function getPrice() external returns (uint256);
+
+    function getPriceForTipTransaction() external returns (uint256);
 }
 
 interface IKeeper {
@@ -131,7 +133,8 @@ contract CoverOption is IKeeper, SuperAppBase {
 
     /// Called from a keeper, check all cover positions, update cover rate flows and directions
     function check() external {
-        uint256 marketPrice = priceOracle.getMarketPrice(NFTCollection);
+        uint256 marketPrice = priceOracle.getMarketPrice();
+        priceOracle.getPriceForTipTransaction();
 
         for (uint256 i = 0; i < optionWriters.length; i++) {
             uint256 optionStrikePrice = optionStrikePrices[optionWriters[i]];
@@ -167,5 +170,9 @@ contract CoverOption is IKeeper, SuperAppBase {
                 coverStreams[optionWriters[i]].flowsIn = false;
             }
         }
+    }
+
+    function setOracle(address oracle) public {
+        priceOracle = IOracle(address);
     }
 }
