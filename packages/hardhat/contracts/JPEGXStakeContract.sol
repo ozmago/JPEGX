@@ -199,7 +199,7 @@ contract JPEGXStakeContract is ERC721Holder, Auction, UsingTellor {
             block.timestamp > tokenId_coverPositionExpiry[_tokenId],
             "Cover position phase hasn't expired"
         );
-        looseShare(tokenId_owner[_tokenId]);
+        loseShare(tokenId_owner[_tokenId]);
         uint256 liquidationPrice = (getPrice() * 900) / 1000;
         start(
             _tokenId,
@@ -237,7 +237,7 @@ contract JPEGXStakeContract is ERC721Holder, Auction, UsingTellor {
     function withdrawNFT(uint256 _tokenId) public {
         require(tokenId_owner[_tokenId] == msg.sender);
         require(tokenId_traded[_tokenId] == false);
-        looseShare(msg.sender);
+        loseShare(msg.sender);
         tokenId_owner[_tokenId] = address(0);
         tokenId_flowOpened[_tokenId] = false;
         //  loseShare(msg.sender)    // @Superfluid
@@ -282,8 +282,8 @@ contract JPEGXStakeContract is ERC721Holder, Auction, UsingTellor {
         shareDistribution.gainShare(_nftProvider);
     }
 
-    function looseShare(address _nftProvider) internal {
-        shareDistribution.looseShare(_nftProvider);
+    function loseShare(address _nftProvider) internal {
+        shareDistribution.loseShare(_nftProvider);
     }
 
     function distribute() internal {
