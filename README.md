@@ -91,7 +91,7 @@
   - Provides ongoing balancing of strike to market price differential for option writers, in a sigle transaction.
   - Keeper will be used for ongoing stream monitoring and flow rate adjustments within the epoch
 
-### The flow: 🔎
+### The flows: 🔎
 
 <a>
     <img src="packages/assets/technical_picture.png" alt="Technical picture">
